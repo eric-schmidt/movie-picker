@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -29,30 +29,54 @@ const Dialog = () => {
   );
   const [movieData, setMovieData] = useState();
 
-  const fetchMovies = async (url) => {
-    try {
-      setLoading(true);
-      const options = {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${tmdbApiKey}`,
-        },
-      };
-      const response = await fetch(url, options);
-      const json = await response.json();
-      // Update movie data and loading state.
-      setMovieData(json);
-      setLoading(false);
-    } catch (err) {
-      setError(true);
-      console.error(err);
-    }
-  };
+  const fetchMovies = useCallback(
+    async (url) => {
+      try {
+        setLoading(true);
+        const options = {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${tmdbApiKey}`,
+          },
+        };
+        const response = await fetch(url, options);
+        const json = await response.json();
+        // Update movie data and loading state.
+        setMovieData(json);
+        setLoading(false);
+      } catch (err) {
+        setError(true);
+        console.error(err);
+      }
+    },
+    [tmdbApiKey]
+  );
+
+  // const fetchMovies = async (url) => {
+  //   try {
+  //     setLoading(true);
+  //     const options = {
+  //       method: "GET",
+  //       headers: {
+  //         accept: "application/json",
+  //         Authorization: `Bearer ${tmdbApiKey}`,
+  //       },
+  //     };
+  //     const response = await fetch(url, options);
+  //     const json = await response.json();
+  //     // Update movie data and loading state.
+  //     setMovieData(json);
+  //     setLoading(false);
+  //   } catch (err) {
+  //     setError(true);
+  //     console.error(err);
+  //   }
+  // };
 
   useEffect(() => {
     fetchMovies(searchUrl);
-  }, [searchUrl]);
+  }, [fetchMovies, searchUrl]);
 
   useEffect(() => {
     sdk.window.startAutoResizer();

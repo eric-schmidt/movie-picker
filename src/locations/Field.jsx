@@ -4,7 +4,6 @@ import {
   /* useCMA, */ useSDK,
   useFieldValue,
 } from "@contentful/react-apps-toolkit";
-import { JsonEditor } from "@contentful/field-editor-json";
 import { getYearFromString } from "../utils/formatDate";
 
 const Field = () => {
@@ -70,7 +69,6 @@ const Field = () => {
           />
         </EntityList>
       )}
-      {/* <JsonEditor field={sdk.field} /> */}
     </>
   );
 };
