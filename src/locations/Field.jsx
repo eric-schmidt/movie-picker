@@ -23,7 +23,9 @@ const Field = () => {
       return;
     }
     // Populate JSON field, and also set CF entry title.
-    sdk.entry.fields.title.setValue(result.movie.title);
+    sdk.entry.fields.title.setValue(
+      `${result.movie.title} (${getYearFromString(result.movie.release_date)})`
+    );
     setValue(result);
   };
 
