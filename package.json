@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "create-app-definition": "contentful-app-scripts create-app-definition",
     "upload": "contentful-app-scripts upload --bundle-dir ./build",
-    "upload-ci": "contentful-app-scripts upload --ci --bundle-dir ./build  --organization-id $CONTENTFUL_ORG_ID --definition-id $CONTENTFUL_APP_DEF_ID --token $CONTENTFUL_ACCESS_TOKEN"
+    "upload-ci": "dotenv cross-var contentful-app-scripts upload --ci --bundle-dir ./build  --organization-id %CONTENTFUL_ORG_ID% --definition-id %CONTENTFUL_APP_DEF_ID% --token %CONTENTFUL_ACCESS_TOKEN%"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,7 +44,8 @@
     "@contentful/app-scripts": "1.1.23",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "12.1.5",
-    "cross-env": "7.0.3"
+    "cross-var": "^1.1.0",
+    "dotenv-cli": "^7.3.0"
   },
   "homepage": "."
 }
