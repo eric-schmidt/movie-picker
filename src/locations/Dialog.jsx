@@ -53,27 +53,6 @@ const Dialog = () => {
     [tmdbApiKey]
   );
 
-  // const fetchMovies = async (url) => {
-  //   try {
-  //     setLoading(true);
-  //     const options = {
-  //       method: "GET",
-  //       headers: {
-  //         accept: "application/json",
-  //         Authorization: `Bearer ${tmdbApiKey}`,
-  //       },
-  //     };
-  //     const response = await fetch(url, options);
-  //     const json = await response.json();
-  //     // Update movie data and loading state.
-  //     setMovieData(json);
-  //     setLoading(false);
-  //   } catch (err) {
-  //     setError(true);
-  //     console.error(err);
-  //   }
-  // };
-
   useEffect(() => {
     fetchMovies(searchUrl);
   }, [fetchMovies, searchUrl]);
