@@ -1,4 +1,4 @@
-# Video Game Picker
+# Movie Game Picker
 
 Integrates The Movie Database API data into a Contentful JSON field. When installing this App Definition, be sure to enable this app for both the App Configuration screen screen as well as the JSON object field type. Once installed, you will be directed to the config screen where you can add your TMDb API key. Next, you will need to create a JSON object field on a content type of your choice and enable this app for that field's appearance and then you should be all set.
 
